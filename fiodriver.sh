@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-DEVICES=( sdb )
+DEVICES=( nbd0 )
 THREADS=1
-IODEPTH=( 1 4 16 32 64 )
+IODEPTH=( 1 4 16 )
 FIO_SCRIPTS='scripts'
 
 function usage() {
