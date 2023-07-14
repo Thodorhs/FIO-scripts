@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-block_sizes=( 4 8 16 32 64 128 256 512 1024 2048 4096 8192 )
+block_sizes=( 2048 4096 8192 )
 
 function usage() {
 	echo
@@ -90,9 +90,6 @@ echo
 echo -n "    Block Size: "
 STARTTIME=$(date +%s)
 for bs in ${block_sizes[@]}; do
-	if [ $(cat "/sys/block/${blockdevice}/queue/rotational") -eq 0 ]; then
-		sudo blkdiscard /dev/"$blockdevice"
-	fi
 	echo -n "${bs}KB "
 	{ sudo SIZE='80%' BLOCK_SIZE="${bs}k" DEVICE="$blockdevice" IODEPTH="$iodepth" NJOBS="$njobs" fio "$file" ; } 2>&1 >> "${directory}/${bs}.txt"
 done
