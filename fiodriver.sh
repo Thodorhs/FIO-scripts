@@ -2,7 +2,7 @@
 
 DEVICES=( nbd0 )
 THREADS=1
-IODEPTH=( 1 4 16 )
+IODEPTH=( 1 2 )
 FIO_SCRIPTS='scripts'
 
 function usage() {

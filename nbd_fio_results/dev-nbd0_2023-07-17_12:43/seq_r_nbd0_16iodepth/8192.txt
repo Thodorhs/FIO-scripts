@@ -1,0 +1,31 @@
+read: (g=0): rw=read, bs=(R) 8192KiB-8192KiB, (W) 8192KiB-8192KiB, (T) 8192KiB-8192KiB, ioengine=libaio, iodepth=16
+fio-3.7
+Starting 1 thread
+fio: cache invalidation of /dev/nbd0 failed: Permission denied
+
+read: (groupid=0, jobs=1): err= 0: pid=18506: Mon Jul 17 12:55:34 2023
+   read: IOPS=167, BW=1338MiB/s (1402MB/s)(26.2GiB/20025msec)
+    slat (usec): min=2726, max=6904, avg=5962.91, stdev=246.57
+    clat (msec): min=20, max=104, avg=89.58, stdev= 2.55
+     lat (msec): min=26, max=110, avg=95.54, stdev= 2.57
+    clat percentiles (msec):
+     |  1.00th=[   89],  5.00th=[   89], 10.00th=[   90], 20.00th=[   90],
+     | 30.00th=[   90], 40.00th=[   90], 50.00th=[   90], 60.00th=[   90],
+     | 70.00th=[   90], 80.00th=[   90], 90.00th=[   91], 95.00th=[   91],
+     | 99.00th=[   91], 99.50th=[   91], 99.90th=[   92], 99.95th=[  100],
+     | 99.99th=[  105]
+   bw (  MiB/s): min= 1136, max= 1344, per=99.63%, avg=1332.60, stdev=32.82, samples=40
+   iops        : min=  142, max=  168, avg=166.53, stdev= 4.10, samples=40
+  lat (msec)   : 50=0.15%, 100=99.82%, 250=0.03%
+  cpu          : usr=0.04%, sys=3.77%, ctx=178032, majf=0, minf=576
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.2%, 16=99.6%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=3348,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+   READ: bw=1338MiB/s (1402MB/s), 1338MiB/s-1338MiB/s (1402MB/s-1402MB/s), io=26.2GiB (28.1GB), run=20025-20025msec
+
+Disk stats (read/write):
+  nbd0: ios=212785/0, merge=0/0, ticks=5011576/0, in_queue=2523347, util=99.54%

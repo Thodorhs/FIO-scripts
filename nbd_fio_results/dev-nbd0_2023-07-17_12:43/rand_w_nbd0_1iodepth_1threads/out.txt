@@ -1,0 +1,4 @@
+Block Size (KB),Throughput (MB/s)
+2048,1424
+4096,1360
+8192,1346

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-block_sizes=( 2048 4096 8192 )
+block_sizes=( 4096 )
 
 function usage() {
 	echo
@@ -91,7 +91,7 @@ echo -n "    Block Size: "
 STARTTIME=$(date +%s)
 for bs in ${block_sizes[@]}; do
 	echo -n "${bs}KB "
-	{ sudo SIZE='80%' BLOCK_SIZE="${bs}k" DEVICE="$blockdevice" IODEPTH="$iodepth" NJOBS="$njobs" fio "$file" ; } 2>&1 >> "${directory}/${bs}.txt"
+	{ SIZE='80%' BLOCK_SIZE="${bs}k" DEVICE="$blockdevice" IODEPTH="$iodepth" NJOBS="$njobs" fio "$file" ; } 2>&1 >> "${directory}/${bs}.txt"
 done
 echo
 ENDTIME=$(date +%s)
